@@ -156,7 +156,12 @@ void playGame(){
 		bool f=1;
 		char c;
 		cin>>c;
-		while((isValidkey(c)) && f){
+		while(!isValidkey(c)){
+			cout<<"Try Again\n";
+			cout<<"Press up(w) , bottom(s) , left(a) , right(d) key \n ";
+			cin>>c;
+		}
+		while(f){
 			f=0;
 			vector<vector<int>>newGrid = grid;
 			helper(newGrid,c);
@@ -167,6 +172,11 @@ void playGame(){
 				printBoard(grid);
 				cin>>c;
 				f=1;
+				while(!isValidkey(c)){
+					cout<<"Try Again\n";
+					cout<<"Press up(w) , bottom(s) , left(a) , right(d) key \n ";
+					cin>>c;
+				}
 			}
 			else grid=newGrid;
 		}
